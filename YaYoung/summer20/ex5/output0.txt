@@ -1,0 +1,6 @@
+// Some imports and comments
+const component = require('./component');
+
+describe('suite', function () {
+    it('test1', function () {        // Some test 1    });
+});

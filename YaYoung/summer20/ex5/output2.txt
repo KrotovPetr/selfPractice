@@ -1,0 +1,6 @@
+// Some imports and comments
+const component = require('./component');
+
+describe('suite', function () {
+    it.skip('test3', function () {        // Some test 3    });
+});
