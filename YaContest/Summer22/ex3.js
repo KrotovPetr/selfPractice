@@ -34,7 +34,6 @@ function decode(message, replaces) {
                         if(entry[0].localeCompare(str)===0){
                             dictArr.push(entry[0]);
                         }
-
                     }
                 }
                 if(flag){
@@ -71,6 +70,7 @@ function decode(message, replaces) {
 
 // console.log(decode('Aa', [{ from: 'a', to: 'b' }])) //да
 // console.log(decode('ab', [{ from: 'a', to: 'b' }])) // нет
+console.log(decode('ababBA', [{ from: 'ab', to: 'b' }])) // нет
 // console.log(decode('ab', [])) // нет
 // console.log(decode('ab', [{ from: 'a', to: '' }])) // нет
 // console.log(decode('ab', [{ from: 'a', to: 'ba' }, { from: 'b', to: 'r' }]))
