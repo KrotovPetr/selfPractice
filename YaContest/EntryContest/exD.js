@@ -11,6 +11,6 @@ function generate(cur, open, closed, n){
     }
 }
 
-generate("",0,0,2)
+generate("",0,0,3)
 
 
