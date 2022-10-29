@@ -23,4 +23,29 @@ function rle(str) {
     return ans
 }
 
-rle("AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBB")
+// rle("AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBB")
+
+
+// function getCopied(str){
+//     let ans = "";
+//     let count = 1;
+//     let prevElem = str[0];
+//     for(let i=1;str.length;i++){
+//         if(prevElem!==str[i]){
+//             if(count===1){
+//                 ans+=str[i];
+//             } else{
+//                 ans+=`${str[i]}${count}`;
+//             }
+//             count = 1;
+//             prevElem = str[i];
+//         } else {
+//             count++;
+//         }
+//     }
+//     ans+=`${str[str.length-1]}${count}`;
+//     console.log(ans)
+//     return ans;
+// }
+
+console.log(rle("AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBB") === "A4B3C2XYZD4E3F3A6B28")
