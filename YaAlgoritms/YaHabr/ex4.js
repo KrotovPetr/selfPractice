@@ -27,6 +27,51 @@
 //     })
 //     return max;
 // }
+
+
+// function getMaxInterval(arr){
+//     let copyArr = [];
+//     let count = 0;
+//     let prevElem = null;
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]===prevElem){
+//             count++;
+//         } else {
+//             if(prevElem !== null){
+//                 copyArr.push([prevElem, count]);
+//             }
+//             prevElem = arr[i];
+//             count = 1;
+//         }
+//
+//     }
+//     copyArr.push([prevElem, count]);
+//     let maxInterval = 0;
+//     let currentInterval = 0;
+//     let hasO = false;
+//     let hasMinO = false;
+//     for(let i=0;i<copyArr.length;i++){
+//         if(copyArr[i][0] === 1){
+//             currentInterval += copyArr[i][1];
+//         } else {
+//             hasO = true;
+//             if(copyArr[i][1]===1){
+//                 currentInterval += copyArr[i][1];
+//                 hasMinO = true;
+//             } else {
+//                 if(currentInterval > maxInterval){
+//                     maxInterval = currentInterval;
+//                 }
+//                 currentInterval = 0;
+//             }
+//
+//         }
+//
+//     }
+// }
+
+
+
 function getTotal(arr){
     let buffArr = [];
     for (let i=0;i<arr.length;i++){

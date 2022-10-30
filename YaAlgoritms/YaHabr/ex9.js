@@ -7,22 +7,26 @@ function isPossible(str1, str2){
     let arr2 = str2.split("");
     let copyArr = [];
     let maxLength = Math.max(arr1.length, arr2.length)
+    let flag = true;
     for(let i=0;i<maxLength;i++){
         if(arr1[i]!==arr2[i]){
             if(arr2.length>arr1.length){
-                arr2[i]=null;
-                copyArr = [...arr1.slice(0,i+1), null, ...arr1.slice(i+1, arr1.length)]
+                arr2[i] = null;
+                arr1 = [...arr1.slice(0,i),null,...arr1.slice(i+1, arr1.length)]
                 break;
             }
             if(arr2.length<arr1.length){
-                arr1[i]=null;
+                arr1[i] = null;
+                arr2 = [...arr2.slice(0,i),null,...arr2.slice(i, arr2.length)]
                 break;
             }
-
+            if(arr2.length===arr1.length){
+                arr1[i] = null;
+                arr2[i] = null;
+                break;
+            }
         }
     }
-    console.log(arr1)
-    console.log(arr2)
     for(let i=0;i<arr1.length;i++){
         if(arr1[i]===arr2[i]){
             common++;
@@ -38,3 +42,6 @@ function isPossible(str1, str2){
 }
 console.log(isPossible("str", "strr"))
 console.log(isPossible("rstr", "str"))
+console.log(isPossible("s2tr", "str"))
+console.log(isPossible("s2tr", "s1tr"))
+console.log(isPossible("s2tr", "s1tl"))
