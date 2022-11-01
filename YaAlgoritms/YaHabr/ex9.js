@@ -12,7 +12,7 @@ function isPossible(str1, str2){
         if(arr1[i]!==arr2[i]){
             if(arr2.length>arr1.length){
                 arr2[i] = null;
-                arr1 = [...arr1.slice(0,i),null,...arr1.slice(i+1, arr1.length)]
+                arr1 = [...arr1.slice(0,i),null,...arr1.slice(i, arr1.length)]
                 break;
             }
             if(arr2.length<arr1.length){
