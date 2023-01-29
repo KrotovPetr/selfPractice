@@ -39,7 +39,7 @@ function modifyArr(line){
         case 0: let flag = checkElem(Number.parseInt(line[1])); console.log(flag); break;
         case 1: sumElem(Number.parseInt(line[1])); break;
         case 2: addElem(Number.parseInt(line[1])); break;
-        case 3: deleteFromSet(Number.parseInt(line[1])); break;
+        case 3: deleteFromSet(Number.parseInt(line[1]));  break;
     }
 }
 
@@ -53,7 +53,6 @@ rl.on('line', (line)=>{
     if(amountCom === (clicker - 2)){
         rl.close();
     }
-    console.log(arr);
     clicker++;
 }).on('close',()=>{
 })
