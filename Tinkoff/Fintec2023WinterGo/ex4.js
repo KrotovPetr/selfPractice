@@ -2,18 +2,18 @@ const readline = require('readline');
 const rl = readline.createInterface(process.stdin, process.stdout);
 
 //vars
-// let clicker = 0;
-// let target = null;
-// let arr = [];
-let target = 29;
-let arr = [9, 4, 1, 8, 7];
-//code
+let clicker = 0;
+let target = null;
+let arr = [];
 
+//code
 function getResult(){
     let totalSum = 0;
+
     arr.forEach((elem)=>{
         totalSum+=elem;
     })
+    // console.log(arr)
     if(totalSum<target){
         console.log(-1);
     }else{
@@ -43,17 +43,20 @@ function getResult(){
 }
 
 
-// rl.on('line',(line)=>{
-//     if(clicker===0){
-//         target = Number.parseInt(line.split(" ")[1]);
-//     }else {
-//         arr = line.split(" ");
-//         getResult();
-//         rl.close();
-//     }
-//     clicker++;
-// }).on("close",()=>{
-//
-// })
+rl.on('line',(line)=>{
+    if(clicker===0){
+        target = Number.parseInt(line.split(" ")[1]);
+    }else {
+        arr = line.split(" ");
+        arr = arr.map((elem)=>{
+            return Number.parseInt(elem);
+        })
+        getResult();
+        rl.close();
+    }
+    clicker++;
+}).on("close",()=>{
 
-getResult()
+})
+
+// getResult()
