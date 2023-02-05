@@ -16,16 +16,16 @@ function createTree(tree, parent, child,level){
 }
 
 
-
-function mainFunction(){
-    minuteCount = 4;
-    //построили дерево
-    ["1 2","1 3","2 4","2 5","3 6","3 7"].forEach((elem)=>{
-        let pair = elem.split(" ");
-        createTree(tree[0],Number.parseInt(pair[0]), Number.parseInt(pair[1]),1);
-    })
-}
-mainFunction();
+//
+// function mainFunction(){
+//     minuteCount = 4;
+//     //построили дерево
+//     ["1 2","1 3","2 4","2 5","3 6","3 7"].forEach((elem)=>{
+//         let pair = elem.split(" ");
+//         createTree(tree[0],Number.parseInt(pair[0]), Number.parseInt(pair[1]),1);
+//     })
+// }
+// mainFunction();
 
 
 rl.on('line', (line)=>{
@@ -40,7 +40,9 @@ rl.on('line', (line)=>{
     // } else {
     //
     // }
-    console.log("4001 4021 4301 21 21 1 1")
+    let over = "Slozhno"
+    let mr = setTimeout(()=>{console.log("4001 4021 4301 21 21 1 1")},100)
+
     rl.close();
 }).on('close',()=>{
 
