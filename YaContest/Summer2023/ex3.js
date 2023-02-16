@@ -1,28 +1,30 @@
-// module.exports = function(points, x0, y0, zoom) {
+// Логика решения простая, сначала выясняем допустимые границы, затем отсеиваем лишние точки
+// Далее составляем поле и начинаем проверку
 //
-//
-// module.exports = }
+// Тут может быть проблема с ориентацией координат, т.е. явно в задаче они нигде не указаны
+// Не указано условие на включение и отбрасывание крайних границ
+// Не указано условие на включение или отбрасывание точки центра
 function getResult(points, x0,y0,zoom){
-    let area = 100 / zoom;
+    let area = 100 / zoom; //выясняем размеры
     let xCord = {max: Math.min(x0+area,100), min: Math.max(x0-area, -100)};
-    let yCord = {max: Math.min(y0+area,100), min: Math.max(y0-area, -100)};
-    points = points.filter((elem)=>{
+    let yCord = {max: Math.min(y0+area,100), min: Math.max(y0-area, -100)};//считаем данные
+    points = points.filter((elem)=>{ //фильтруем
         if(xCord.max>=elem.x && xCord.min <= elem.x && yCord.max>=elem.y && yCord.min<=elem.y){
             return elem;
         }
     })
     console.log(points)
     let field = [];
-    for(let i = 0; i<10;i++){
+    for(let i = 0; i<10;i++){//создаём поле
         field.push([]);
         for(let j=0;j<10;j++){
             field[i].push(0);
         }
     }
 
-    let step = area / 5;
+    let step = area / 5; //шаг клетки
 
-    points.forEach((elem)=>{
+    points.forEach((elem)=>{//проверка на поле
         let i = null;
         let j = null;
 
@@ -64,7 +66,7 @@ function getResult(points, x0,y0,zoom){
             field[i][j]++
     })
     let ansArr = [];
-    for(let i=0;i<=9;i++){
+    for(let i=0;i<=9;i++){ // вывод в форме объекта
         for(let j=0;j<=9;j++){
             if(field[i][j]>0){
                 ansArr.push({i:i, j:j, count: field[i][j]})

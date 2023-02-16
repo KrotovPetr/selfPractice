@@ -1,3 +1,5 @@
+//не очень хорошая версия, решение ниже
+
 // async function getSpinner(request, spinnerOn, spinnerOff) {
 //     let result = null;
 //     const spinnerTimeout = setTimeout(async ()=>{
@@ -22,7 +24,13 @@
 //     setTimeout(()=>{console.log("Off")},1000)
 // }
 
-
+//последняя версия с решением
+//Алгоритм:
+//Ставим таймер, заводим setTimeout, оно уходит по EventLoop в ожидание
+//Если запрос выполняется быстрее, то его очищаем
+//Иначе срабатывает спиннер
+//Единственный нюанс может быть связан с порядком вызова функций On 1 Off - выведет программа
+//Т.е. Включим спиннер, получим данные, выключим спиннер
 async function getSpinner(request, showSpinner, hideSpinner) {
     const al = request.then(()=>{isLoading=false});
     let isLoading = true;
