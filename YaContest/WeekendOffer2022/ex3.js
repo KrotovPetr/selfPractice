@@ -1,13 +1,11 @@
-function getList(arr){
+function getList(arr) {
     let ans = [];
     let dict = new Map();
-    arr.forEach((elem)=>{
-        dict.set(elem[elem.length-1], elem);
-
-    })
+    arr.forEach((elem) => {
+        dict.set(elem[elem.length - 1], elem);
+    });
     return ans;
 }
-
 
 const cities = [
     'Геленджик',

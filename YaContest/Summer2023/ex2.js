@@ -1,36 +1,39 @@
-function main(originalFunction, timeInterval, maxRequests) {
-
-}
-module.exports = function(originalFunction, timeInterval, maxRequests) {
-  let map = new Map();
-  return (ip,timestamp,...args)=>{
-    if(!map.has(ip)){
-      map.set(ip, {attempts: [timestamp], status: "valid"});
-      originalFunction(...args);
-    } else {
-      let data = map.get(ip);
-      if(data.status === "banned"){
-        //ip is banned
-      } else {
-        console.log(data.attempts)
-        if(maxRequests>data.attempts.length){
-          map.set(ip,  {attempts: [...data.attempts, timestamp], status: "valid"});
-          originalFunction(...args);
-        } else {
-          if(timestamp-data.attempts[0]>timeInterval){
-            data.attempts.shift();
-            data.attempts.push();
+function main(originalFunction, timeInterval, maxRequests) {}
+module.exports = function (originalFunction, timeInterval, maxRequests) {
+    let map = new Map();
+    return (ip, timestamp, ...args) => {
+        if (!map.has(ip)) {
+            map.set(ip, { attempts: [timestamp], status: 'valid' });
             originalFunction(...args);
-          } else {
-            map.set(ip,  {attempts: [...data.attempts, timestamp], status: "banned"})
-            // console.log(`ip ${ip} has banned`)
-          }
+        } else {
+            let data = map.get(ip);
+            if (data.status === 'banned') {
+                //ip is banned
+            } else {
+                console.log(data.attempts);
+                if (maxRequests > data.attempts.length) {
+                    map.set(ip, {
+                        attempts: [...data.attempts, timestamp],
+                        status: 'valid',
+                    });
+                    originalFunction(...args);
+                } else {
+                    if (timestamp - data.attempts[0] > timeInterval) {
+                        data.attempts.shift();
+                        data.attempts.push();
+                        originalFunction(...args);
+                    } else {
+                        map.set(ip, {
+                            attempts: [...data.attempts, timestamp],
+                            status: 'banned',
+                        });
+                        // console.log(`ip ${ip} has banned`)
+                    }
+                }
+            }
         }
-      }
-
-    }
-  }
-}
+    };
+};
 
 // function sendSMS(phoneNumber, message) {
 //     console.log(`Отправлено SMS "${message}"`)

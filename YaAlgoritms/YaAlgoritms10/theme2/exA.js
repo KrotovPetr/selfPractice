@@ -3,26 +3,23 @@ const rl = readline.createInterface(process.stdin, process.stdout);
 
 let arr = [];
 
-rl.on("line", (line)=>{
-    arr = line.split(" ");
+rl.on('line', (line) => {
+    arr = line.split(' ');
     let flag = true;
     let prevElem = null;
-    arr.forEach((elem)=>{
-        if(prevElem){
-            if(elem<=prevElem){
+    arr.forEach((elem) => {
+        if (prevElem) {
+            if (elem <= prevElem) {
                 flag = false;
             }
             prevElem = Number.parseInt(elem);
-        }
-        else{
+        } else {
             prevElem = Number.parseInt(elem);
         }
-    })
-    if(flag){
-        console.log("YES");
+    });
+    if (flag) {
+        console.log('YES');
     } else {
-        console.log("NO");
+        console.log('NO');
     }
-}).on("close",()=>{
-
-})
+}).on('close', () => {});

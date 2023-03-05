@@ -3,7 +3,7 @@ const rl = readline.createInterface(process.stdin, process.stdout);
 let arr = [];
 let set = new Set();
 let len = null;
-let count =0;
+let count = 0;
 // rl.on('line', function(line) {
 //     // console.log("Input: "+ line + "  "+arr+"   "+len);
 //     if(len === null){
@@ -34,47 +34,40 @@ let count =0;
 //     process.exit(0);
 // })
 
-
-rl.on('line', function(line) {
+rl.on('line', function (line) {
     // console.log("Input: "+ line + "  "+arr+"   "+len);
-    if(len === null){
+    if (len === null) {
         len = Number.parseInt(line);
     } else {
         count++;
-        if(!set.has(Number.parseInt(line))){
+        if (!set.has(Number.parseInt(line))) {
             arr.push(Number.parseInt(line));
-            set.add(Number.parseInt(line))
+            set.add(Number.parseInt(line));
         }
-        console.log(max_xor(arr, arr.length))
+        console.log(max_xor(arr, arr.length));
     }
     // console.log((arr.length === len && len!==null) + `  ` + "len: "+ len+ '  '+arr.length)
-    if(count === len && len !== null){
+    if (count === len && len !== null) {
         rl.close();
     }
-
-}).on('close', function(){
+}).on('close', function () {
     // console.log(arr);
     process.exit(0);
-})
+});
 
-
-function max_xor(arr, n)
-{
-    let maxx = 0, mask = 0;
+function max_xor(arr, n) {
+    let maxx = 0,
+        mask = 0;
     let se = new Set();
-    for (let i = 30; i >= 0; i--)
-    {
-        mask |= (1 << i);
-        for (let j = 0; j < n; ++j)
-        {
+    for (let i = 30; i >= 0; i--) {
+        mask |= 1 << i;
+        for (let j = 0; j < n; ++j) {
             se.add(arr[j] & mask);
         }
 
         let newMaxx = maxx | (1 << i);
-        for (let prefix of se.keys())
-        {
-            if (se.has(newMaxx ^ prefix))
-            {
+        for (let prefix of se.keys()) {
+            if (se.has(newMaxx ^ prefix)) {
                 maxx = newMaxx;
                 break;
             }
@@ -83,4 +76,3 @@ function max_xor(arr, n)
     }
     return maxx;
 }
-

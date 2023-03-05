@@ -6,12 +6,12 @@
 //     return copyX === x.slice(middle, x.length).join("");
 // };
 
-var isPalindrome = function(x) {
+var isPalindrome = function (x) {
     x = x.toString();
-    console.log(x)
-    return x.split("").reverse().join("").localeCompare(x) === 0 ? true : false;
+    console.log(x);
+    return x.split('').reverse().join('').localeCompare(x) === 0 ? true : false;
 };
 
-console.log(isPalindrome( 121))
-console.log(isPalindrome( -121))
-console.log(isPalindrome( 11));
+console.log(isPalindrome(121));
+console.log(isPalindrome(-121));
+console.log(isPalindrome(11));

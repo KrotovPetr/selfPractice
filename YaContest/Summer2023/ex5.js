@@ -32,26 +32,30 @@
 //Единственный нюанс может быть связан с порядком вызова функций On 1 Off - выведет программа
 //Т.е. Включим спиннер, получим данные, выключим спиннер
 async function getSpinner(request, showSpinner, hideSpinner) {
-    const al = request.then(()=>{isLoading=false});
+    const al = request.then(() => {
+        isLoading = false;
+    });
     let isLoading = true;
-    const r = setTimeout(()=>{
-        if(isLoading){
+    const r = setTimeout(() => {
+        if (isLoading) {
             // showSpinner();
-            console.log("On!")
-            const interval = setInterval(()=>{
-                if(!isLoading){
+            console.log('On!');
+            const interval = setInterval(() => {
+                if (!isLoading) {
                     // hideSpinner();
-                    console.log("Off")
+                    console.log('Off');
                     clearInterval(interval);
                 }
-            },1000)
+            }, 1000);
         }
-    },250);
+    }, 250);
     // clearTimeout(r);
 }
 
-getSpinner(new Promise((res,rej)=>{
-    setTimeout(()=>{
-        res(1);
-    },300)
-}).then(data=>console.log(data)))
+getSpinner(
+    new Promise((res, rej) => {
+        setTimeout(() => {
+            res(1);
+        }, 300);
+    }).then((data) => console.log(data))
+);

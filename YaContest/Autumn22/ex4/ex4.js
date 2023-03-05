@@ -1,46 +1,46 @@
-function solution(field, moves){
-    moves = moves.split(" ");
-    moves.forEach((elem)=>{
-        switch(elem){
-            case"U":
+function solution(field, moves) {
+    moves = moves.split(' ');
+    moves.forEach((elem) => {
+        switch (elem) {
+            case 'U':
                 const rotateBoardU = rotateLeft(field);
                 const newBoard1U = compress(rotateBoardU);
                 const newBoard2U = merge(newBoard1U);
                 const newBoardU = compress(newBoard2U);
                 field = rotateRight(newBoardU);
                 break;
-            case"D":
+            case 'D':
                 const rotateBoard = rotateRight(field);
                 const newBoard1D = compress(rotateBoard);
                 const newBoard2D = merge(newBoard1D);
                 const newBoard = compress(newBoard2D);
                 field = rotateLeft(newBoard);
                 break;
-            case"L":
+            case 'L':
                 const newBoard1L = compress(field);
                 const newBoard2L = merge(newBoard1L);
                 field = compress(newBoard2L);
-                 break;
-            case"R":
+                break;
+            case 'R':
                 const reversedBoardR = reverse(field);
                 const newBoard1 = compress(reversedBoardR);
                 const newBoard2 = merge(newBoard1);
-                const newBoardR = compress(newBoard2)
-                field =  reverse(newBoardR);
+                const newBoardR = compress(newBoard2);
+                field = reverse(newBoardR);
                 break;
-            default: throw new Error("TypeError");
+            default:
+                throw new Error('TypeError');
         }
-    })
+    });
     return field;
 }
-
 
 const reverse = (board) => {
     const reverseBoard = [
         [0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0],
-        [0, 0, 0, 0]
+        [0, 0, 0, 0],
     ];
     for (let i = 0; i < board.length; i++) {
         for (let j = 0; j < board[i].length; j++) {
@@ -55,7 +55,7 @@ const rotateLeft = (board) => {
         [0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0],
-        [0, 0, 0, 0]
+        [0, 0, 0, 0],
     ];
     for (let i = 0; i < board.length; i++) {
         for (let j = 0; j < board[i].length; j++) {
@@ -69,7 +69,7 @@ const rotateRight = (board) => {
         [0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0],
-        [0, 0, 0, 0]
+        [0, 0, 0, 0],
     ];
     for (let i = 0; i < board.length; i++) {
         for (let j = 0; j < board[i].length; j++) {
@@ -84,7 +84,7 @@ const compress = (board) => {
         [0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0],
-        [0, 0, 0, 0]
+        [0, 0, 0, 0],
     ];
     for (let i = 0; i < board.length; i++) {
         let colIndex = 0;
@@ -111,7 +111,7 @@ const merge = (board) => {
     return board;
 };
 
-module.exports = solution
+module.exports = solution;
 const field = [
     [0, 2, 4, 8],
     [0, 0, 0, 0],
@@ -119,6 +119,6 @@ const field = [
     [0, 2, 2, 2],
 ];
 
-const moves = "U U U";
+const moves = 'U U U';
 
 console.log(solution(field, moves));

@@ -2,44 +2,44 @@ module.exports = {
     arr: [],
     minV: -1,
     maxV: -1,
-    push(x){
-        this.arr.push(x)
-        if(this.minV===-1){
+    push(x) {
+        this.arr.push(x);
+        if (this.minV === -1) {
             this.minV = 0;
         } else {
-            if(this.arr[this.minV]>x){
-                this.minV = this.arr.length -1;
+            if (this.arr[this.minV] > x) {
+                this.minV = this.arr.length - 1;
             }
         }
-        if(this.maxV===-1){
+        if (this.maxV === -1) {
             this.maxV = 0;
         } else {
-            if(this.arr[this.maxV]<x){
-                this.maxV = this.arr.length -1;
+            if (this.arr[this.maxV] < x) {
+                this.maxV = this.arr.length - 1;
             }
         }
         // console.log("push "+this.arr+"  max"+this.maxV+"      min"+this.minV )
     },
 
-    shift(){
-        if(this.arr.length === 0){
-            return 0
+    shift() {
+        if (this.arr.length === 0) {
+            return 0;
         }
         let first = this.arr[0];
         this.arr.shift();
-        if(this.minV === 0){
-            for(let i=1;i<this.arr.length;i++){
-                if(this.arr[i]<this.arr[this.minV]){
-                    this.minV=i;
+        if (this.minV === 0) {
+            for (let i = 1; i < this.arr.length; i++) {
+                if (this.arr[i] < this.arr[this.minV]) {
+                    this.minV = i;
                 }
             }
         } else {
-            this.minV --;
+            this.minV--;
         }
-        if(this.maxV === 0){
-            for(let i=1;i<this.arr.length;i++){
-                if(this.arr[i]>this.arr[this.maxV]){
-                    this.maxV=i;
+        if (this.maxV === 0) {
+            for (let i = 1; i < this.arr.length; i++) {
+                if (this.arr[i] > this.arr[this.maxV]) {
+                    this.maxV = i;
                 }
             }
         } else {
@@ -48,17 +48,16 @@ module.exports = {
 
         // console.log("shift "+this.arr+"  max"+this.maxV+"      min"+this.minV )
         return first;
-
     },
 
-    min(){
+    min() {
         return this.arr.length > 0 ? this.arr[this.minV] : 0;
     },
 
-    max(){
+    max() {
         return this.arr.length > 0 ? this.arr[this.maxV] : 0;
-    }
-}
+    },
+};
 //
 // module.exports = {
 //     arr: [],

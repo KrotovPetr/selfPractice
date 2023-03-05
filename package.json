@@ -1,23 +1,23 @@
 {
-  "name": "selfpractice",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/KrotovPetr/selfPractice.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/KrotovPetr/selfPractice/issues"
-  },
-  "homepage": "https://github.com/KrotovPetr/selfPractice#readme",
-  "dependencies": {
-    "node-fetch": "^3.2.10",
-    "nodemon": "^2.0.20"
-  }
+    "name": "selfpractice",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KrotovPetr/selfPractice.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/KrotovPetr/selfPractice/issues"
+    },
+    "homepage": "https://github.com/KrotovPetr/selfPractice#readme",
+    "dependencies": {
+        "node-fetch": "^3.2.10",
+        "nodemon": "^2.0.20"
+    }
 }

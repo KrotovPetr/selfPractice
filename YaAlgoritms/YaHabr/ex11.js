@@ -1,17 +1,17 @@
-function getArr(arr){
+function getArr(arr) {
     let ans = [];
     console.log(arr);
-    arr.forEach((elem)=>{
-        if(typeof elem === "number"){
+    arr.forEach((elem) => {
+        if (typeof elem === 'number') {
             ans.push();
         } else {
             ans.push(...getArr(elem));
         }
-    })
-    
+    });
+
     return ans;
 }
-function getPlainArray(arr){
+function getPlainArray(arr) {
     let ans = [];
     let dict = new Map();
     ans.push(...getArr(arr));

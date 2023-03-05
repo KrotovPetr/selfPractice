@@ -15,10 +15,7 @@ function sumExcept(arr, index, countDigit) {
     }, 0);
 }
 
-
 module.exports = sumExcept;
 
-
-
-console.log(sumExcept([1.2, 3.1, 4.2, 5.3, 8.10,2.13, 0.2],0, 0))
+console.log(sumExcept([1.2, 3.1, 4.2, 5.3, 8.1, 2.13, 0.2], 0, 0));
 // module.exports = sumExcept;

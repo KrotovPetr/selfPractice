@@ -1,12 +1,12 @@
 function anagrams(str1, str2) {
-    str1 = str1.split("").sort().join("");
+    str1 = str1.split('').sort().join('');
 
     let ansArr = [];
-    str2.forEach((elem)=>{
-        if(str1.localeCompare(elem.split("").sort().join(""))===0){
+    str2.forEach((elem) => {
+        if (str1.localeCompare(elem.split('').sort().join('')) === 0) {
             ansArr.push(elem);
         }
-    })
+    });
     return ansArr;
 }
 

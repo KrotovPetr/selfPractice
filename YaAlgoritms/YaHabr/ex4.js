@@ -28,7 +28,6 @@
 //     return max;
 // }
 
-
 // function getMaxInterval(arr){
 //     let copyArr = [];
 //     let count = 0;
@@ -70,34 +69,29 @@
 //     }
 // }
 
-
-
-function getTotal(arr){
+function getTotal(arr) {
     let buffArr = [];
-    for (let i=0;i<arr.length;i++){
-        buffArr.push([...arr.slice(0,i),...arr.slice(i+1,arr.length)]);
+    for (let i = 0; i < arr.length; i++) {
+        buffArr.push([...arr.slice(0, i), ...arr.slice(i + 1, arr.length)]);
     }
     let maxDist = 0;
-    for(let i=0;i<buffArr.length;i++){
+    for (let i = 0; i < buffArr.length; i++) {
         let currentDist = 0;
-        for(let j=0;j<buffArr[i].length;j++){
-            if(buffArr[i][j]===1){
+        for (let j = 0; j < buffArr[i].length; j++) {
+            if (buffArr[i][j] === 1) {
                 currentDist++;
-
             } else {
-                if(currentDist>maxDist){
+                if (currentDist > maxDist) {
                     maxDist = currentDist;
-
                 }
                 currentDist = 0;
             }
         }
-        if(currentDist>maxDist){
+        if (currentDist > maxDist) {
             maxDist = currentDist;
-
         }
     }
     return maxDist;
 }
 
-console.log(getTotal([1,1,0,0,1,1]))
+console.log(getTotal([1, 1, 0, 0, 1, 1]));

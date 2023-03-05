@@ -1,10 +1,10 @@
-const fs = require("fs");
-let blocks = fs.readFileSync("./input.txt", "utf8").split("\n")[1];
-blocks = blocks.split(" ");
-let arr = blocks.map((elem)=>{
-    return Number.parseInt(elem)
-})
-fs.writeFileSync("./output.txt",ex3(arr).toString())
+const fs = require('fs');
+let blocks = fs.readFileSync('./input.txt', 'utf8').split('\n')[1];
+blocks = blocks.split(' ');
+let arr = blocks.map((elem) => {
+    return Number.parseInt(elem);
+});
+fs.writeFileSync('./output.txt', ex3(arr).toString());
 // function ex3(priceArr){
 //     let ans = [0,0];
 //
@@ -23,4 +23,3 @@ fs.writeFileSync("./output.txt",ex3(arr).toString())
 //     })
 //     return `${ans[0]} ${ans[1]}`
 // }
-

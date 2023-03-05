@@ -7,25 +7,25 @@ let target = null;
 let arr = [];
 
 //code
-function getResult(){
+function getResult() {
     let totalSum = 0;
 
-    arr.forEach((elem)=>{
-        totalSum+=elem;
-    })
+    arr.forEach((elem) => {
+        totalSum += elem;
+    });
     // console.log(arr)
-    if(totalSum<target){
+    if (totalSum < target) {
         console.log(-1);
-    }else{
+    } else {
         let decrPoint = 0;
         let day = 1;
         let doneSum = 0;
-        while(doneSum<target){
-            if(totalSum-decrPoint>=target){
-                if(arr[0]-decrPoint>0){
-                    doneSum+=arr[0]-decrPoint;
+        while (doneSum < target) {
+            if (totalSum - decrPoint >= target) {
+                if (arr[0] - decrPoint > 0) {
+                    doneSum += arr[0] - decrPoint;
                     arr.shift();
-                    totalSum-=decrPoint;
+                    totalSum -= decrPoint;
                     decrPoint++;
                 } else {
                     let copy = arr[0];
@@ -34,29 +34,25 @@ function getResult(){
                 }
             } else {
                 day++;
-                decrPoint=0;
+                decrPoint = 0;
             }
-
         }
-        console.log(day)
+        console.log(day);
     }
 }
 
-
-rl.on('line',(line)=>{
-    if(clicker===0){
-        target = Number.parseInt(line.split(" ")[1]);
-    }else {
-        arr = line.split(" ");
-        arr = arr.map((elem)=>{
+rl.on('line', (line) => {
+    if (clicker === 0) {
+        target = Number.parseInt(line.split(' ')[1]);
+    } else {
+        arr = line.split(' ');
+        arr = arr.map((elem) => {
             return Number.parseInt(elem);
-        })
+        });
         getResult();
         rl.close();
     }
     clicker++;
-}).on("close",()=>{
-
-})
+}).on('close', () => {});
 
 // getResult()

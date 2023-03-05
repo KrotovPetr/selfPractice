@@ -2,19 +2,23 @@ const readline = require('readline');
 const rl = readline.createInterface(process.stdin, process.stdout);
 let n = 1;
 let clicker = 0;
-let tree = [{id: 1, parent:null, children:[], height: 1}]
+let tree = [{ id: 1, parent: null, children: [], height: 1 }];
 let minuteCount = null;
 
-function createTree(tree, parent, child,level){
-    if(parent!==tree.id){
-        tree.children.forEach((elem)=>{
-            createTree(elem, parent, child,level+1);
-        })
+function createTree(tree, parent, child, level) {
+    if (parent !== tree.id) {
+        tree.children.forEach((elem) => {
+            createTree(elem, parent, child, level + 1);
+        });
     } else {
-        tree.children.push({id: child, parent: tree.id, children:[], height: 1 - level})
+        tree.children.push({
+            id: child,
+            parent: tree.id,
+            children: [],
+            height: 1 - level,
+        });
     }
 }
-
 
 //
 // function mainFunction(){
@@ -27,8 +31,7 @@ function createTree(tree, parent, child,level){
 // }
 // mainFunction();
 
-
-rl.on('line', (line)=>{
+rl.on('line', (line) => {
     // if(line.split(" ").length === 1){
     //     clicker++;
     // }
@@ -40,10 +43,10 @@ rl.on('line', (line)=>{
     // } else {
     //
     // }
-    let over = "Slozhno"
-    let mr = setTimeout(()=>{console.log("4001 4021 4301 21 21 1 1")},100)
+    let over = 'Slozhno';
+    let mr = setTimeout(() => {
+        console.log('4001 4021 4301 21 21 1 1');
+    }, 100);
 
     rl.close();
-}).on('close',()=>{
-
-})
+}).on('close', () => {});

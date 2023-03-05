@@ -67,12 +67,13 @@
 //     return ansArr;
 // };
 
-function addTwoNumbers(l1,l2){
-    let str1 = "";
-    let str2 = "";
-    l1 = +(l1.join(""));
-    l2=  +(l2.join(""));
-    return (l1+l2).toString().split("").reverse()
+function addTwoNumbers(l1, l2) {
+    let str1 = '';
+    let str2 = '';
+    l1 = +l1.join('');
+    l2 = +l2.join('');
+    return (l1 + l2).toString().split('').reverse();
 }
-l1 = [9,9,9,9,9,9,9]; l2 = [9,9,9,9]
-console.log(addTwoNumbers(l1,l2));
+l1 = [9, 9, 9, 9, 9, 9, 9];
+l2 = [9, 9, 9, 9];
+console.log(addTwoNumbers(l1, l2));
