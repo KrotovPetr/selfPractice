@@ -42,12 +42,16 @@ function ex5(content) {
                 copyStr += commonText[i] + '\n';
             }
         }
+
         ans.push(copyStr);
     });
-    ans.forEach((elem, current) => {
-        fs.writeFileSync(`output${current}.txt`, elem);
-    });
+    // ans.forEach((elem, current) => {
+    //     console.log(elem)
+    //     fs.writeFileSync(`output${current}.txt`, elem);
+    // });
+    return ans;
+
 }
 
 let content = fs.readFileSync('./input.txt', 'utf-8');
-ex5(content);
+console.log(ex5(content));

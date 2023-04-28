@@ -1,4 +1,4 @@
-module.exports = function (field, moves) {
+function ex2(field, moves) {
     let ans = [];
     let size = 3;
     let snakeCord = [
@@ -101,6 +101,6 @@ const field = [
     'E------X--Y----------',
 ];
 
-const moves = `R 12 D 2 R 2 U 1 R 2`;
+const moves = ``;
 
 console.log(ex2(field, moves));
